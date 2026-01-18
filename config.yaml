@@ -1,0 +1,21 @@
+# Watchdog Configuration
+
+endpoints:
+  - name: "Example API"
+    url: "https://httpbin.org/status/200"
+    interval: 60
+    timeout: 10
+
+  - name: "GitHub API"
+    url: "https://api.github.com"
+    interval: 120
+    timeout: 5
+
+notifications:
+  slack:
+    enabled: false
+    webhook_url: ""
+
+settings:
+  log_level: "INFO"
+  log_file: "logs/watchdog.log"
