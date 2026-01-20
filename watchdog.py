@@ -59,10 +59,10 @@ class EndpointMonitor:
             return result
             
         except requests.exceptions.Timeout:
-            logger.error(f"{self.name}: Timeout after {self.timeout}s")
-            return {'name': self.name, 'status': 'TIMEOUT', 'error': 'Request timeout'}
+            logger.error(f"{self.name}: Request timed out after {self.timeout}s")
+            return {'name': self.name, 'status': 'TIMEOUT', 'error': f'Timeout after {self.timeout}s'}
         except requests.exceptions.RequestException as e:
-            logger.error(f"{self.name}: {str(e)}")
+            logger.error(f"{self.name}: Connection error - {str(e)}")
             return {'name': self.name, 'status': 'ERROR', 'error': str(e)}
 
 
