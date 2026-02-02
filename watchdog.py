@@ -26,6 +26,7 @@ class EndpointMonitor:
     def __init__(self, config: Dict):
         self.name = config['name']
         self.url = config['url']
+        # Default 10s timeout prevents hanging on slow endpoints
         self.timeout = config.get('timeout', 10)
         self.interval = config.get('interval', 60)
         self.last_status = None
